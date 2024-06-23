@@ -13,7 +13,7 @@ export const getKota = async(req,res)=>{
 export const insertKota = async(req,res)=>{
     const {kota}= req.body
     try {
-        await query("INSERT INTO kota(kota) values (?)", [kota])
+        await query("INSERT INTO kota(kota_name) values (?)", [kota])
         return res.status(200).json({msg:"Kota Ditambahkan"})
     } catch (error) {
         console.log("Terjadi kesalahan", e)
@@ -25,7 +25,7 @@ export const updateKota = async(req,res)=>{
     const {kota}= req.body
     const {id}=req.params
     try {
-        await query("UPDATE kota SET kota=? where id=?", [kota, id])
+        await query("UPDATE kota SET kota_name=? where id=?", [kota, id])
         return res.status(200).json({msg:"Kota Diubah"})
     } catch (error) {
         console.log("Terjadi kesalahan", e)

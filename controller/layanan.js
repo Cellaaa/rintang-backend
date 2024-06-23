@@ -16,7 +16,7 @@ export const getLayanan = async(req,res)=>{
 export const insertLayanan = async(req,res)=>{
     const {layanan}= req.body
     try {
-        await query("INSERT INTO layanan(layanan) values (?)", [layanan])
+        await query("INSERT INTO layanan(layanan_name) values (?)", [layanan])
         return res.status(200).json({msg:"Layanan Ditambahkan"})
     } catch (error) {
         console.log("Terjadi kesalahan", e)
@@ -28,7 +28,7 @@ export const updateLayanan = async(req,res)=>{
     const {layanan}= req.body
     const {id}=req.params
     try {
-        await query("UPDATE layanan SET layanan=? where id=?", [layanan, id])
+        await query("UPDATE layanan SET layanan_name=? where id=?", [layanan, id])
         return res.status(200).json({msg:"Layanan Diubah"})
     } catch (error) {
         console.log("Terjadi kesalahan", e)
